@@ -32,6 +32,7 @@ class Image:
     A bitmap image where the data is already in the format to
     directly send to the FreeX printer (as TSPL)
     """
+
     width: int
     height: int
     data: bytes
@@ -39,9 +40,15 @@ class Image:
 
 ####################################################################
 #
-def image2tspl(image, labelwidth_mm: int=100, labelheight_mm: int=150, dpi: float=203.2, ):
+def image2tspl(
+    image,
+    labelwidth_mm: int = 100,
+    labelheight_mm: int = 150,
+    dpi: float = 203.2,
+):
     """
     Convert the image into TSPL code (using the IMAGE operator)
     """
     labelwidth = int(round(labelwidth_mm / 25.4 * dpi))
     labelheight = int(round(labelheight_mm / 25.4 * dpi))
+    print(f"Label width: {labelwidth}, label height: {labelheight}")
